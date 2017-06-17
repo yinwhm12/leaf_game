@@ -1,7 +1,9 @@
 package conf
 
 import (
-
+	"io/ioutil"
+	"leaf/log"
+	"encoding/json"
 )
 
 var Server struct {
@@ -17,12 +19,12 @@ var Server struct {
 }
 
 func init() {
-	//data, err := ioutil.ReadFile("conf/server.json")
-	//if err != nil {
-	//	log.Fatal("%v", err)
-	//}
-	//err = json.Unmarshal(data, &Server)
-	//if err != nil {
-	//	log.Fatal("%v", err)
-	//}
+	data, err := ioutil.ReadFile("conf/server.json")
+	if err != nil {
+		log.Fatal("%v", err)
+	}
+	err = json.Unmarshal(data, &Server)
+	if err != nil {
+		log.Fatal("%v", err)
+	}
 }

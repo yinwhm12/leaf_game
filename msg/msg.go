@@ -9,14 +9,20 @@ var Processor = json.NewProcessor()
 
 func init() {
 	Processor.Register(&Hello{})
-	Processor.Register(&UserTest{})
+	Processor.Register(&UserLoginInfo{})
+	Processor.Register(&LoginError{})
 }
 
 type Hello struct {
 	Name string
 }
 
-type UserTest struct {
+type UserLoginInfo struct {
 	Name string
 	Pwd	string
+}
+
+type LoginError struct {
+	State int
+	Message string
 }
