@@ -5,10 +5,9 @@ import (
 	"reflect"
 	"gopkg.in/mgo.v2/bson"
 
-	"leaf/log"
 	"fmt"
-	"time"
-	"leaf/gate"
+	"github.com/name5566/leaf/log"
+	"github.com/name5566/leaf/gate"
 )
 
 type User struct {
@@ -37,7 +36,8 @@ func register(args []interface{})   {//注册
 		defer mongoDB.UnRef(db)
 		err := db.DB(DB).C(USERDB).Insert(userInfo)
 		if err != nil{
-			log.Fatal("err register --%v",err)
+			//log.Fatal("err register --%v",err)
+			log.Fatal("err register - %v, err ",err )
 
 		}
 	}, func() {
