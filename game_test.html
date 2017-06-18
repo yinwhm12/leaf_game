@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>game test</title>
+</head>
+
+<body>
+	<input  type="submit" >
+	<button onclick="ok_button()">ok</button>
+	<p>return : <output id="result"></output></p>
+
+
+
+<script type="text/javascript">
+function ok_button(){
+	var ws = new WebSocket('ws://127.0.0.1:3653')
+
+	ws.onopen = function(){
+		ws.send(JSON.stringify({Hello:{Name:'leaf'}}))
+	}
+
+	ws.onmessage = function(evt){
+		var re = evt.data;
+		document.getElementById("result").innerHTML = evt;
+		alert("data re....",re)
+	}
+}
+</script>
+
+
+</body>
+
+</html>
