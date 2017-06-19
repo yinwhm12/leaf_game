@@ -22,8 +22,14 @@ function ok_button(){
 
 	ws.onmessage = function(evt){
 		var re = evt.data;
-		document.getElementById("result").innerHTML = evt;
-		alert("data re....",re)
+		var reader = new FileReader()
+		reader.readAsText(re)
+//		document.getElementById("result").innerHTML = evt.data;
+//		alert("data re....",re)
+        reader.onload = function() {
+            console.log(this.result);//直接打印的就是服务端传回来的数据
+            document.getElementById("result").innerHTML = this.result;
+        }
 	}
 }
 </script>
