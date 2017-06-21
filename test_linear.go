@@ -51,7 +51,52 @@ func ExampleLinearContext()  {
 	d.Close()
 }
 
-func main()  {
-	ExampleLinearContext()
+type CardData struct {
+	CardId	int	//牌的ID 顺序
+	CardType	int	//牌的类型(1--万子 2--同子 3--条子 4--其他 0--初始)
+	TotalCount	int //牌的数量 4
+	AvailableCardCount	int	//可用的牌数量 0-4
+	State	int	//状态(0--可用状态(没有被摸牌 初始) 1--有拥有者(user) 2--游离牌(已打出))
+	UserID	int //拥有者 当 State==1时
+	OldUserId	int	//曾经拥有者   （谁打出的牌记录)	State == 2
+	CardValue	int	//牌的具体值 如 1万
+	CardPosition int	//牌的位置 随机获得
+}
 
+func initCard(cs []CardData)  {
+	//cs = new([]*CardData,136)
+	//cs =  []*CardData{}
+	//cs = make([]*CardData,136)
+
+	//fmt.Println("in---",len(cs))
+	for i := 0; i < 108; i++{
+		//cs[i] = &CardData{CardType:( i / 36) + 1,CardValue:(i % 9)+1} //
+		cs[i].CardType = ( i / 36) + 1
+		cs[i].CardValue = (i % 9)+1 //
+
+	}
+	//	东、南、西、北、中、发、白 操作初始
+	for i := 108; i< len(cs); i++{
+		cs[i].CardType = (i / 36) + 1
+		cs[i].CardValue = (i / 4) + 1
+		//cs[i] = &CardData{CardType:(i / 36) + 1,CardValue:(i / 4) + 1}
+	}
+}
+
+func main()  {
+	//ExampleLinearContext()
+	//fmt.Println(math.Floor(5/4.0))
+	//fmt.Println(1/36)
+	//fmt.Println(5%4)
+	//cs := new([]*CardData,136)
+	//cs := make([]*CardData,136)
+	//var ss []*CardData = new([]CardData)
+	//var cs []*CardData
+	cs := make([]CardData,136)
+	fmt.Println(len(cs))
+	//cs = nil
+	initCard(cs)
+	for _,v := range cs {
+		fmt.Printf("type=%d,value=%d\n",v.CardType,v.CardValue )
+	}
 }

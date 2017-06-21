@@ -8,11 +8,21 @@ import (
 	"github.com/name5566/leaf/log"
 )
 
-type User struct {
-	Name string
-	Pwd string
-	Age int
-	Address string
+type UserData struct {//数据库的数据
+	UserID	int	"_id"	//用户id 自增型的
+	AccountID	string	//用户线上看到的id
+	NickName	string	//用户的昵称
+	Sex int	//性别 0--女 1--男
+	TotalCount	int	//比赛总次数
+	WinCount	int	//胜利次数
+	Money	int	//账号金币
+	HeadImgUrl	string	//头像
+	CreatedTime	int	//注册时间
+	UnionId	string	//微信id
+		//Name string
+		//Pwd string
+		//Age int
+		//Address string
 }
 
 const USERDB  = "users"
