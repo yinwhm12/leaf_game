@@ -63,23 +63,23 @@ type CardData struct {
 	CardPosition int	//牌的位置 随机获得
 }
 
-func initCard(cs []CardData)  {
+func initCard(cs []*CardData)  {
 	//cs = new([]*CardData,136)
 	//cs =  []*CardData{}
 	//cs = make([]*CardData,136)
 
 	//fmt.Println("in---",len(cs))
 	for i := 0; i < 108; i++{
-		//cs[i] = &CardData{CardType:( i / 36) + 1,CardValue:(i % 9)+1} //
-		cs[i].CardType = ( i / 36) + 1
-		cs[i].CardValue = (i % 9)+1 //
+		cs[i] = &CardData{CardType:( i / 36) + 1,CardValue:(i % 9)+1} //
+		//cs[i].CardType = ( i / 36) + 1
+		//cs[i].CardValue = (i % 9)+1 //
 
 	}
 	//	东、南、西、北、中、发、白 操作初始
 	for i := 108; i< len(cs); i++{
-		cs[i].CardType = (i / 36) + 1
-		cs[i].CardValue = (i / 4) + 1
-		//cs[i] = &CardData{CardType:(i / 36) + 1,CardValue:(i / 4) + 1}
+		//cs[i].CardType = (i / 36) + 1
+		//cs[i].CardValue = (i / 4) + 1
+		cs[i] = &CardData{CardType:(i / 36) + 1,CardValue:(i / 4) + 1}
 	}
 }
 
@@ -92,7 +92,7 @@ func main()  {
 	//cs := make([]*CardData,136)
 	//var ss []*CardData = new([]CardData)
 	//var cs []*CardData
-	cs := make([]CardData,136)
+	cs := make([]*CardData,136)
 	fmt.Println(len(cs))
 	//cs = nil
 	initCard(cs)

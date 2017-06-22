@@ -6,6 +6,8 @@ import (
 
 	"fmt"
 	"github.com/name5566/leaf/log"
+	"time"
+	"strconv"
 )
 
 type UserData struct {//数据库的数据
@@ -17,8 +19,9 @@ type UserData struct {//数据库的数据
 	WinCount	int	//胜利次数
 	Money	int	//账号金币
 	HeadImgUrl	string	//头像
-	CreatedTime	int	//注册时间
+	CreatedAt	int64	//注册时间
 	UnionId	string	//微信id
+	AccessToken	string //token
 		//Name string
 		//Pwd string
 		//Age int
@@ -35,6 +38,18 @@ const USERDB  = "users"
 //func skeletonRegister(m interface{}, h interface{})  {
 //	skeleton.RegisterChanRPC(reflect.TypeOf(m),h)
 //}
+
+func (data *UserData) initValue() error {
+	userID, err := mongoDBNextSeq("users")
+	if err != nil {
+		return fmt.Errorf("get next users id error: %v", err)
+	}
+
+	data.UserID = userID
+	data.AccountID = time.Now().Format("0102") + strconv.Itoa(data.UserID)
+	data.CreatedAt = time.Now().Unix()
+	return nil
+}
 
 func register(userInfo *msg.RegisterUserInfo)  (err error) {//注册
 	//var user User

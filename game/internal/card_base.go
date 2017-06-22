@@ -13,7 +13,9 @@ type CardData struct {
 	CardPosition int	//牌的位置 随机获得
 }
 
-func (c *CardData)initCardClearUserInfo()  {//初始牌 只需将用户信息清除 以及牌的位置 状态进行初始
+type Cards []*CardData
+
+func (c *CardData)InitCardClearUserInfo()  {//初始牌 只需将用户信息清除 以及牌的位置 状态进行初始
 	//c.CardType = 0
 	//c.CardType
 	c.State = 0
@@ -23,9 +25,8 @@ func (c *CardData)initCardClearUserInfo()  {//初始牌 只需将用户信息清
 }
 
 //生成的牌 顺序 万 同 条 其他 分别标记为:1 2 3 4
-//值 1-9 东、南、西、北、中、发、白
 
-func initCard(cs []*CardData)  {//第一次 点击开始
+func InitCard(cs Cards)  {//第一次 点击开始
 
 	for i := 0; i < 108; i++{//只对1-9进行 基本牌初始
 
@@ -40,23 +41,41 @@ func initCard(cs []*CardData)  {//第一次 点击开始
 }
 
 //牌拥有者添加 发牌 或者摸牌 同时 修改状态
-func (c *CardData)addCardUserIDAndState(userId int)  {
+func (c *CardData)AddCardUserIDAndState(userId int)  {
 	c.UserID = userId
 	c.State = 1
 }
 
 //牌的拥有者信息 进行修改
 //当曾经拥有者 添加  处理碰 杠时情况
-func (c *CardData)changeCardUserID(userId int)  {//
+func (c *CardData)ChangeCardUserID(userId int)  {//
 	c.OldUserId = c.UserID
 	c.UserID = userId
 }
 
 //牌状态修改
 //变成游离状态 修改userid
-func (c *CardData)changeCardStateByThrowAway()  {
+func (c *CardData)ChangeCardStateByThrowAway()  {
 	c.State = 2
 	c.OldUserId = c.UserID
 	c.UserID = 0
+}
+
+
+//为[]*CardData 排序
+func (c Cards)Len() int {
+	return  len(c)
+}
+func (c Cards)Less(i, j int) bool  {
+	if c[i].CardType == c[j].CardValue{
+		return c[i].CardValue < c[j].CardValue
+	}else if c[i].CardType < c[j].CardType{
+		return true
+	}else {
+		return false
+	}
+}
+func (c Cards)Swap(i, j int)  {
+	c[i], c[j] = c[j], c[i]
 }
 

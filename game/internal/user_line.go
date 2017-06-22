@@ -9,7 +9,8 @@ type UserLine	struct {
 	gate.Agent //申请代理
 	*g.LinearContext
 	Cards	[]*CardData //牌
-	User	*UserData
+	UserData	*UserData
+	RoomLine	*Room
 }
 
 
