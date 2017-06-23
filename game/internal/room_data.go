@@ -3,7 +3,7 @@ package internal
 //房间基本信息
 
 type RoomData struct {
-	//RoomID	int
+	RoomID	int
 	RoomNumber string
 	Volume	int //房间容量
 	RoomPwd	string	//房间锁--密码

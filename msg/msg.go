@@ -21,6 +21,8 @@ const (
 	MSG_ROOM_ERRORPWD	=	1002	//密码错误
 	MSG_ROOM_OVERVOLUME	= 1003 //你已经在其他房间了 拒绝加入其他房间
 	MSG_ROOM_NOMONEY	= 1004	//起始资金不够
+	MSG_ROOM_NOTEMPTY	=	1005 //房子不空
+	MSG_ROOM_NOROOM	= 1006 //没有该房子记录
 
 )
 
@@ -34,7 +36,8 @@ func init() {
 	Processor.Register(&CodeState{})
 
 	//房间会话注册
-	Processor.Register(&RoomInfo{})
+	Processor.Register(&RoomInfo{})//基本信息
+	Processor.Register(&JoinRoomInfo{})//用户输入密码 点击进入
 }
 
 type CodeState struct {
@@ -71,7 +74,13 @@ type RoomInfo struct {
 	PayValue	int	//倍数
 	BaseMoney	int	//最低资本 才能进房间
 	RoomPwd	string	//房间锁--密码
+	RoomID	int
+	RoomNumber	string
+}
 
+type JoinRoomInfo struct {
+	RoomNumber	string
+	RoomPwd	string
 }
 
 type RoomPWDJoinCondition	struct {

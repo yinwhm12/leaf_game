@@ -15,6 +15,12 @@ type CardData struct {
 
 type Cards []*CardData
 
+var cards Cards
+
+func init()  {
+	InitCard(cards)
+}
+
 func (c *CardData)InitCardClearUserInfo()  {//初始牌 只需将用户信息清除 以及牌的位置 状态进行初始
 	//c.CardType = 0
 	//c.CardType
