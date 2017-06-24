@@ -2,25 +2,21 @@
   <library name="GOPATH &lt;server&gt;">
     <CLASSES>
       <root url="file://$PROJECT_DIR$/../gopkg.in" />
-      <root url="file://$PROJECT_DIR$/../ganzhoumj-server" />
-      <root url="file://$PROJECT_DIR$/../testMongo" />
-      <root url="file://$PROJECT_DIR$/../gotest" />
-      <root url="file://$PROJECT_DIR$/../daoxian-mahjong-server" />
+      <root url="file://$PROJECT_DIR$/../test" />
+      <root url="file://$PROJECT_DIR$/../baseLearning" />
+      <root url="file://$PROJECT_DIR$/../testBee" />
       <root url="file://$PROJECT_DIR$/../github.com" />
-      <root url="file://$PROJECT_DIR$/../leafserver" />
-      <root url="file://$PROJECT_DIR$/../leaf" />
-      <root url="file://$PROJECT_DIR$/../src" />
+      <root url="file://$PROJECT_DIR$/../socketT" />
+      <root url="file://$PROJECT_DIR$/../goc2p" />
     </CLASSES>
     <SOURCES>
       <root url="file://$PROJECT_DIR$/../gopkg.in" />
-      <root url="file://$PROJECT_DIR$/../ganzhoumj-server" />
-      <root url="file://$PROJECT_DIR$/../testMongo" />
-      <root url="file://$PROJECT_DIR$/../gotest" />
-      <root url="file://$PROJECT_DIR$/../daoxian-mahjong-server" />
+      <root url="file://$PROJECT_DIR$/../test" />
+      <root url="file://$PROJECT_DIR$/../baseLearning" />
+      <root url="file://$PROJECT_DIR$/../testBee" />
       <root url="file://$PROJECT_DIR$/../github.com" />
-      <root url="file://$PROJECT_DIR$/../leafserver" />
-      <root url="file://$PROJECT_DIR$/../leaf" />
-      <root url="file://$PROJECT_DIR$/../src" />
+      <root url="file://$PROJECT_DIR$/../socketT" />
+      <root url="file://$PROJECT_DIR$/../goc2p" />
     </SOURCES>
     <excluded>
       <root url="file://$PROJECT_DIR$" />
