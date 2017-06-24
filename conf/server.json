@@ -3,5 +3,7 @@
 	"LogPath": "",
 	"TCPAddr": "127.0.0.1:3563",
 	"WSAddr" : "127.0.0.1:3653",
-	"MaxConnNum": 20000
+	"MaxConnNum": 20000,
+	"DBUrl": "mongodb://ganzhoumj:youxibijiayou@localhost:27017/ganzhoumj"
+
 }

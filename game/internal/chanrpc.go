@@ -59,3 +59,7 @@ func rpcRigesterAgent(args []interface{})  {
 		return
 	}
 }
+
+func rpcJoinRoomAgent(args []interface{})  {
+
+}
