@@ -18,7 +18,7 @@ type Cards []*CardData
 var cards Cards
 
 func init()  {
-	InitCard(cards)
+	//InitCard(cards)
 }
 
 func (c *CardData)InitCardClearUserInfo()  {//初始牌 只需将用户信息清除 以及牌的位置 状态进行初始
@@ -32,7 +32,7 @@ func (c *CardData)InitCardClearUserInfo()  {//初始牌 只需将用户信息清
 
 //生成的牌 顺序 万 同 条 其他 分别标记为:1 2 3 4
 
-func InitCard(cs Cards)  {//第一次 点击开始
+func (cs Cards)InitCard()  {//第一次 点击开始
 
 	for i := 0; i < 108; i++{//只对1-9进行 基本牌初始
 

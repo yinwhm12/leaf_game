@@ -44,6 +44,9 @@ func (r *Room)gameStart()  {
 		//r.WriteMsg(&)
 	//	游戏开始
 	//	发牌
+		var cards Cards
+		cards.InitCard()
+
 		r.Playing = 1
 
 	}
